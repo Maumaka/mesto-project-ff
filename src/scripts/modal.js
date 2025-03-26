@@ -18,4 +18,11 @@ function handleEscClose(evt) {
   }
 }
 
-export {openPopup, closePopup};
+// Закрытие по клику на оверлей
+function handleOverlayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
+}
+
+export {openPopup, closePopup, handleOverlayClick};

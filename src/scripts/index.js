@@ -1,7 +1,7 @@
 import '../pages/index.css';
 import {initialCards} from './cards.js';
 import {createCard, deleteCard, likeCard} from './card.js';
-import{openPopup, closePopup} from './modal.js';
+import{openPopup, closePopup, handleOverlayClick} from './modal.js';
 
 const placesContainer = document.querySelector('.places__list');
 const buttonEditingProfile = document.querySelector('.profile__edit-button');
@@ -32,13 +32,6 @@ popupEditingProfile.classList.add('popup_is-animated');
 popupNewCard.classList.add('popup_is-animated');
 imagePopup.classList.add('popup_is-animated');
 
-// Закрытие по клику на оверлей
-function handleOverlayClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.target);
-  }
-}
-
 // ---------------- Попап редактирования профиля ----------------
 
 buttonEditingProfile.addEventListener('click', () => {
@@ -50,14 +43,14 @@ buttonEditingProfile.addEventListener('click', () => {
 popupButtonCloseEditingProfile.addEventListener('click', () => closePopup(popupEditingProfile));
 popupEditingProfile.addEventListener('mousedown', handleOverlayClick);
 
-function handleFormSubmit(evt) {
+function handleFormSubmitEditProfile(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closePopup(popupEditingProfile);
 }
 
-formElementProfile.addEventListener('submit', handleFormSubmit);
+formElementProfile.addEventListener('submit', handleFormSubmitEditProfile);
 
 // ---------------- Попап добавления нового места ----------------
 
@@ -69,7 +62,7 @@ buttonAdd.addEventListener('click', () => {
 popupButtonCloseNewCard.addEventListener('click', () => closePopup(popupNewCard));
 popupNewCard.addEventListener('mousedown', handleOverlayClick);
 
-function handleFormSubmitNewCard(evt) {
+function handleFormSubmitEditProfileNewCard(evt) {
   evt.preventDefault();
   const newObj = {
     name: cardNameInput.value,
@@ -79,7 +72,7 @@ function handleFormSubmitNewCard(evt) {
   closePopup(popupNewCard);
 }
 
-formElementNewCard.addEventListener('submit', handleFormSubmitNewCard);
+formElementNewCard.addEventListener('submit', handleFormSubmitEditProfileNewCard);
 
 // ---------------- Попап с изображением ----------------
 
