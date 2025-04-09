@@ -26,3 +26,4 @@ function handleOverlayClick(evt) {
 }
 
 export {openPopup, closePopup, handleOverlayClick};
+

@@ -11,3 +11,19 @@
 @import url('../blocks/popup/_is-animated/popup_is-animated.css');
 @import url('../blocks/popup/_is-opened/popup_is-opened.css');
 
+/* Стили для ошибки ввода */
+.popup__input_type_error {
+  border-bottom: 2px solid red;
+}
+
+/* Скрытый текст ошибки (по умолчанию) */
+.form__input-error {
+  color: red;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.popup__error_visible {
+  visibility: visible;
+}
+
