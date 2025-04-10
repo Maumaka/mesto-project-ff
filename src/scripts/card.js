@@ -37,8 +37,13 @@ const createCard = (cardData, removeCard, likeCard, openImageCard, user, delCard
 
 // Удаление карточки
 const deleteCard = (cardElement, delCard, cardId) => {
-  delCard(cardId);
-  cardElement.remove();
+  delCard(cardId)
+    .then(() => {
+      cardElement.remove();
+    })
+    .catch((err) => {
+      console.log('Ошибка при удалении карточки:', err);
+    });
 };
 
 // лайк ставим или убираем

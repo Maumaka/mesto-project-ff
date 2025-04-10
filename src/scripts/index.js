@@ -1,7 +1,7 @@
 import '../pages/index.css';
 import {createCard, deleteCard, likeCard} from './card.js';
 import {openPopup, closePopup, handleOverlayClick} from './modal.js';
-import {setFormEventListeners, clearValidation} from './validation.js';
+import {setFormEventListeners, clearValidation, enableValidation} from './validation.js';
 import {getInitialCards, getNameProfile, setProfile, postNewCard, setAvatar, deleteMyCard} from './api.js';
 
 
@@ -14,7 +14,7 @@ const popupNewCard = document.querySelector('.popup_type_new-card');
 const popupButtonCloseNewCard = popupNewCard.querySelector('.popup__close');
 const imagePopup = document.querySelector('.popup_type_image');
 const popupButtonCloseImage = imagePopup.querySelector('.popup__close');
-const formElementProfile = document.querySelectorAll('.popup__form')[0];
+const formElementProfile = document.forms['edit-profile'];
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_description');
 const profileTitle = document.querySelector('.profile__title');
@@ -22,14 +22,14 @@ const profileDescription = document.querySelector('.profile__description');
 const avatarProfile = document.querySelector('.profile__image');
 const cardNameInput = document.querySelector('.popup__input_type_card-name');
 const urlInput = popupNewCard.querySelector('.popup__input_type_url');
-const formElementNewCard = document.querySelectorAll('.popup__form')[1];
+const formElementNewCard = document.forms['new-place'];
 const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__caption');
 const pupupEditAvatar = document.querySelector('.popup_type_edit_avatar');
 const profileImage = document.querySelector('.profile__image');
 const urlInputAvatar = pupupEditAvatar.querySelector('.popup__input_type_url');
 const popupButtonCloseEditAvatar = pupupEditAvatar.querySelector('.popup__close');
-const formElementAvatar = document.querySelectorAll('.popup__form')[2];
+const formElementAvatar = document.forms['new-avatar'];
 
 // Добавляем анимацию попапам
 popupEditingProfile.classList.add('popup_is-animated');
@@ -135,14 +135,6 @@ imagePopup.addEventListener('mousedown', handleOverlayClick);
 
 
 //-------------------- Валидация -----------------------
-
-//функция перебора массива
-function enableValidation(settings) {
-  const allForms = document.querySelectorAll(settings.formSelector);
-  allForms.forEach(form => {
-     setFormEventListeners(settings, form);
-  });
-}
 
 //массив классов
 const validationConfig = {

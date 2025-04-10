@@ -68,4 +68,12 @@ function clearValidation(form, settings) {
   submitButton.disabled = true;
 }
 
-export {setFormEventListeners, clearValidation};
+//функция перебора массива
+function enableValidation(settings) {
+  const allForms = document.querySelectorAll(settings.formSelector);
+  allForms.forEach(form => {
+     setFormEventListeners(settings, form);
+  });
+}
+
+export {setFormEventListeners, clearValidation, enableValidation};
