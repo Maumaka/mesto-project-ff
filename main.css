@@ -628,8 +628,6 @@ template {
   position: relative;
   width: 120px;
   height: 120px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
@@ -727,16 +725,11 @@ template {
   width: 21px;
   height: 18px;
   background: transparent url(df0c965524717a3fd8e9.svg) no-repeat;
-  
   background-size: 21px 18px;
   border: none;
   cursor: pointer;
   padding: 0;
   margin: 0;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -757,7 +750,6 @@ template {
   color: #000;
   padding-top: 5px;
 }
-
 .card__like-button_is-active {
   background: transparent url(a7ffe37dcb927ba0c46c.svg) no-repeat;
 }
